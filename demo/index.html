@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="imageZoomDemo">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Zoom Demo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+    <link rel="stylesheet" href="../dist/ngimagezoom.css">
+    <link rel="stylesheet" href="./styles/demo.css">
+</head>
+<body ng-controller="ImageZoomController as zoom">
+<div class="container-fluid" zoom zoom-imagesrc="{{zoom.src}}">
+    <div zoom-image-container class="zoom-image-container"></div>
+    <aside>
+        <div zoom-control class="zoom-control"></div>
+
+        <form class="form-horizontal">
+
+            <fieldset class="control-group">
+                <label for="selectImage" class="control-label">Select Image</label>
+
+                <div class="controls">
+                    <select ng-model="zoom.src" id="selectImage"
+                            ng-options="image.url as image.name for image in zoom.images">
+                        <option value="">Select Image</option>
+                    </select>
+                </div>
+                <label for="inputZoomLvl" class="control-label">Zoom Level</label>
+
+                <div class="controls">
+                    <input type="range" ng-model="zoom.zoomLvl" id="inputZoomLvl" min="2" max="5" step="1" value="4">
+                </div>
+            </fieldset>
+
+            <fieldset class="control-group">
+                <label for="inputName" class="control-label">Name</label>
+
+                <div class="controls">
+                    <input ng-model="zoom.name" id="inputName" placeholder="Enter Image Name" class="input-small"
+                           required>
+                </div>
+                <label for="imageURL" class="control-label">URL</label>
+
+                <div class="controls">
+                    <input ng-model="zoom.url" type="url" id="imageURL" placeholder="Enter Image URL"
+                           class="input-small" required>
+                </div>
+                <div class="btn">
+                    <button ng-click="zoom.addImage()">Add</button>
+                </div>
+            </fieldset>
+
+        </form>
+    </aside>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.min.js"></script>
+<script src="../dist/ngimagezoom.js"></script>
+<script src="./scripts/demo.js"></script>
+</body>
+</html>

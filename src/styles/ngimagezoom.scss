@@ -1,0 +1,29 @@
+.zoom-control__clip,
+.zoom-image-container__clip {
+    position: relative;
+}
+
+.zoom-control__clip {
+    overflow: hidden;
+    img{
+        width: 100%;
+        max-width: 100%;
+        display: block;
+    }
+}
+
+.zoom-image-container__clip {
+    overflow: hidden;
+    max-height: 100%;
+    img{
+        position: relative;
+        display: block;
+    }
+}
+
+.mark {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(235, 235, 235, 0.5);
+    pointer-events: none;
+}
